@@ -17,6 +17,13 @@ namespace WebApiEscuela.Models
 
         public string SecondLastNameStudent { get; set; }
 
+        public string PictureStudent { get; set; }
+
+        public string PasswordStudent { get; set; }
+
+        public string MailStudent { get; set; }
+
+
 
     }
 }
