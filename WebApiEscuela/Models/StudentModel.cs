@@ -8,7 +8,7 @@ namespace WebApiEscuela.Models
 {
     public class StudentModel
     {
-        string ConnectionString = "";
+        string ConnectionString = "Server=tcp:escuelaappserver.database.windows.net,1433;Initial Catalog=Escuela_DataBase;Persist Security Info=False;User ID=escuelaappuser;Password=Escuelapass01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public int IDStudent { get; set; }
 
@@ -19,6 +19,12 @@ namespace WebApiEscuela.Models
         public string SecondLastNameStudent { get; set; }
 
         public string PictureStudent { get; set; }
+
+        public int Grade1P { get; set; }
+
+        public int Grade2P { get; set; }
+
+        public int Grade3P { get; set; }
 
         public string PasswordStudent { get; set; }
 
@@ -47,6 +53,9 @@ namespace WebApiEscuela.Models
                                     NameStudent = reader["NameStudent"].ToString(),
                                     FirstLastNameStudent = reader["FirstLastNameStudent"].ToString(),
                                     SecondLastNameStudent = reader["SecondLastNameStudent"].ToString(),
+                                    Grade1P = (int)reader["Grade1P"],
+                                    Grade2P = (int)reader["Grade2P"],
+                                    Grade3P = (int)reader["Grade3P"],
                                     PictureStudent = reader["PictureStudent"].ToString(),
                                     PasswordStudent = reader["PasswordStudent"].ToString(),
                                     MailStudent = reader["MailStudent"].ToString()
@@ -100,6 +109,9 @@ namespace WebApiEscuela.Models
                                     NameStudent = reader["NameStudent"].ToString(),
                                     FirstLastNameStudent = reader["FirstLastNameStudent"].ToString(),
                                     SecondLastNameStudent = reader["SecondLastNameStudent"].ToString(),
+                                    Grade1P = (int)reader["Grade1P"],
+                                    Grade2P = (int)reader["Grade2P"],
+                                    Grade3P = (int)reader["Grade3P"],
                                     PictureStudent = reader["PictureStudent"].ToString(),
                                     PasswordStudent = reader["PasswordStudent"].ToString(),
                                     MailStudent = reader["MailStudent"].ToString()
@@ -137,13 +149,16 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "UPDATE Student SET NameStudent = @NameStudent, FirstLastNameStudent = @FirstLastNameStudent, SecondLastNameStudent = @SecondLastNameStudent, PictureStudent = @PictureStudent  WHERE IDStudent = @IDStudent;";
+                    string tsql = "UPDATE Student SET NameStudent = @NameStudent, FirstLastNameStudent = @FirstLastNameStudent, SecondLastNameStudent = @SecondLastNameStudent, Grade1P = @Grade1P, Grade2P = @Grade2P, Grade3P = @Grade3P, PictureStudent = @PictureStudent  WHERE IDStudent = @IDStudent;";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.Parameters.AddWithValue("@NameStudent", NameStudent);
                         cmd.Parameters.AddWithValue("@FirstLastNameStudent", FirstLastNameStudent);
                         cmd.Parameters.AddWithValue("@SecondLastNameStudent", SecondLastNameStudent);
+                        cmd.Parameters.AddWithValue("@Grade1P", Grade1P);
+                        cmd.Parameters.AddWithValue("@Grade2P", Grade2P);
+                        cmd.Parameters.AddWithValue("@Grade3P", Grade3P);
                         cmd.Parameters.AddWithValue("@PictureStudent", PictureStudent);
                         cmd.Parameters.AddWithValue("@IDStudent", IDStudent);
                         cmd.ExecuteNonQuery();
@@ -177,13 +192,16 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "INSERT INTO Student (NameStudent, FirstLastNameStudent, SecondLastNameStudent, PictureStudent, PasswordStudent, MailStudent) VALUES(@NameStudent, @FirstLastNameStudent, @SecondLastNameStudent, @PictureStudent, @PasswordStudent, @MailStudent ); SELECT LAST_INSERT_ID();";
+                    string tsql = "INSERT INTO Student (NameStudent, FirstLastNameStudent, SecondLastNameStudent, Grade1P, Grade2P, Grade3P, PictureStudent, PasswordStudent, MailStudent) VALUES(@NameStudent, @FirstLastNameStudent, @SecondLastNameStudent,@Grade1P, @Grade2P, @Grade3P, @PictureStudent, @PasswordStudent, @MailStudent ); SELECT SCOPE_IDENTITY();";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.Parameters.AddWithValue("@NameStudent", NameStudent);
                         cmd.Parameters.AddWithValue("@FirstLastNameStudent", FirstLastNameStudent);
                         cmd.Parameters.AddWithValue("@SecondLastNameStudent", SecondLastNameStudent);
+                        cmd.Parameters.AddWithValue("@Grade1P", Grade1P);
+                        cmd.Parameters.AddWithValue("@Grade2P", Grade2P);
+                        cmd.Parameters.AddWithValue("@Grade3P", Grade3P);
                         cmd.Parameters.AddWithValue("@PictureStudent", PictureStudent);
                         cmd.Parameters.AddWithValue("@PasswordStudent", PasswordStudent);
                         cmd.Parameters.AddWithValue("@MailStudent", MailStudent);
