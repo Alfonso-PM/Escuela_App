@@ -11,6 +11,8 @@ namespace WebApiEscuela.Models
 
         public int IDClass { get; set; }
 
+        public int IDTeacher { get; set; }
+
         public string NameClass { get; set; }
 
         public string DescriptionClass { get; set; }
@@ -20,6 +22,9 @@ namespace WebApiEscuela.Models
         public int Grade2P { get; set; }
 
         public int Grade3P { get; set; }
+
         public string PictureClass { get; set; }
+
+        public TeacherModel Teacher { get; set; }
     }
 }
