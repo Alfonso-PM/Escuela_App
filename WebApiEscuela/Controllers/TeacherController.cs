@@ -1,47 +1,47 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using WebApiEscuela.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApiEscuela.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("tch/[controller]")]
     [ApiController]
     public class TeacherController : ControllerBase
     {
         // GET: api/<TeacherController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ResponseModel Get()
         {
-            return new string[] { "value1", "value2" };
+            return new TeacherModel().GetAllTeachers();
         }
 
         // GET api/<TeacherController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ResponseModel Get(int id)
         {
-            return "value";
+            return new TeacherModel().GetTeacherbyID(id);
         }
 
         // POST api/<TeacherController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ResponseModel Post([FromBody] TeacherModel teacher)
         {
+            return teacher.InsertTeacher();
         }
 
         // PUT api/<TeacherController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ResponseModel Put([FromBody] TeacherModel teacher)
         {
+            return teacher.UpdateTeacher();
         }
 
         // DELETE api/<TeacherController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        /* [HttpDelete("{id}")]
+         public void Delete(int id)
+         {
+
+         }*/
     }
 }

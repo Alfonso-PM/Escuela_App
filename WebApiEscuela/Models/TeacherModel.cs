@@ -27,7 +27,7 @@ namespace WebApiEscuela.Models
 
 
 
-        public ResponseModel GetAllStudents()
+        public ResponseModel GetAllTeachers()
         {
             List<TeacherModel> list = new List<TeacherModel>();
             try
@@ -78,7 +78,7 @@ namespace WebApiEscuela.Models
 
 
 
-        public ResponseModel GetStudentbyID(int id)
+        public ResponseModel GetTeacherbyID(int id)
         {
             TeacherModel obj = new TeacherModel();
             try
@@ -131,7 +131,7 @@ namespace WebApiEscuela.Models
 
 
 
-        public ResponseModel UpdateStudent()
+        public ResponseModel UpdateTeacher()
         {
             try
             {
@@ -171,7 +171,7 @@ namespace WebApiEscuela.Models
 
 
 
-        public ResponseModel InsertStudent()
+        public ResponseModel InsertTeacher()
         {
             try
             {
