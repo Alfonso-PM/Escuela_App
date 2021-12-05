@@ -43,6 +43,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    flavorDimensions "examen"
+    productFlavors {
+        dev {
+            dimension "examen"
+            versionNameSuffix "-dev"
+            ext {
+                buildConfigField "String", "API_BASE_URL", "\"https://webapiescuela.azurewebsites.net/\""
+            }
+        }
+        prod {
+            dimension "examen"
+            versionNameSuffix ""
+            ext {
+                buildConfigField "String", "API_BASE_URL", "\"https://webapiescuela.azurewebsites.net/\""
+            }
+        }
+    }
 }
 
 dependencies {

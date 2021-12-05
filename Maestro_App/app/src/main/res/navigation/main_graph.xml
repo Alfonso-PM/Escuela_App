@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/loginFrangment">
+    <fragment
+        android:id="@+id/loginFrangment"
+        android:name="com.poapm.maestro_app.presentation.login.loginFrangment"
+        android:label="login_frangment_fragment"
+        tools:layout="@layout/login_frangment_fragment" >
+        <action
+            android:id="@+id/action_loginFrangment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.poapm.maestro_app.presentation.account.AccountFragment"
+        android:label="account_fragment"
+        tools:layout="@layout/account_fragment" />
+    <fragment
+        android:id="@+id/materiaFragment"
+        android:name="com.poapm.maestro_app.presentation.materia.materiaFragment"
+        android:label="materia_fragment"
+        tools:layout="@layout/materia_fragment" >
+        <action
+            android:id="@+id/action_materiaFragment_to_materiaDetailFragment"
+            app:destination="@id/materiaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/materiaDetailFragment"
+        android:name="com.poapm.maestro_app.presentation.materiaDetail.materiaDetailFragment"
+        android:label="materia_detail_fragment"
+        tools:layout="@layout/materia_detail_fragment" >
+        <action
+            android:id="@+id/action_materiaDetailFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentFragment"
+        android:name="com.poapm.maestro_app.presentation.student.studentFragment"
+        android:label="student_fragment"
+        tools:layout="@layout/student_fragment" >
+        <action
+            android:id="@+id/action_studentFragment_to_studentDetailFragment"
+            app:destination="@id/studentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentDetailFragment"
+        android:name="com.poapm.maestro_app.presentation.studentDetail.studentDetailFragment"
+        android:label="student_detail_fragment"
+        tools:layout="@layout/student_detail_fragment" />
+</navigation>
