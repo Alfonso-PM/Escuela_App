@@ -1,0 +1,595 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "WebApiEscuela",
+    "version": "v1"
+  },
+  "paths": {
+    "/cls/Class": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Class"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ClassModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/detail": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Class"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DetailClassModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/cls/Class/{id}": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/cls/Class/tch/{id}": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/cls/Class/std/{id}": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/cls/Class/cls/{id}": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/std/Student": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Student"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/std/Student/{id}": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Student"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/tch/Teacher": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Teacher"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TeacherModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/tch/Teacher/{id}": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Teacher"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TeacherModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ClassModel": {
+      "type": "object",
+      "properties": {
+        "idClass": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idTeacher": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nameClass": {
+          "type": "string"
+        },
+        "descriptionClass": {
+          "type": "string"
+        },
+        "pictureClass": {
+          "type": "string"
+        },
+        "teacher": {
+          "$ref": "#/definitions/TeacherModel"
+        }
+      }
+    },
+    "DetailClassModel": {
+      "type": "object",
+      "properties": {
+        "idDetailClass": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idClass": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idStudent": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "student": {
+          "$ref": "#/definitions/StudentModel"
+        },
+        "class": {
+          "$ref": "#/definitions/ClassModel"
+        }
+      }
+    },
+    "ResponseModel": {
+      "type": "object",
+      "properties": {
+        "isSuccess": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "result": { }
+      }
+    },
+    "StudentModel": {
+      "type": "object",
+      "properties": {
+        "idStudent": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nameStudent": {
+          "type": "string"
+        },
+        "firstLastNameStudent": {
+          "type": "string"
+        },
+        "secondLastNameStudent": {
+          "type": "string"
+        },
+        "pictureStudent": {
+          "type": "string"
+        },
+        "grade1P": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "grade2P": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "grade3P": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "passwordStudent": {
+          "type": "string"
+        },
+        "mailStudent": {
+          "type": "string"
+        }
+      }
+    },
+    "TeacherModel": {
+      "type": "object",
+      "properties": {
+        "idTeacher": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nameTeacher": {
+          "type": "string"
+        },
+        "firstLastNameTeacher": {
+          "type": "string"
+        },
+        "secondLastNameTeacher": {
+          "type": "string"
+        },
+        "pictureTeacher": {
+          "type": "string"
+        },
+        "passwordTeacher": {
+          "type": "string"
+        },
+        "mailTeacher": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
