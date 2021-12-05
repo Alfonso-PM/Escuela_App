@@ -139,7 +139,7 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "UPDATE Student SET NameStudent = @NameStudent, FirstLastNameStudent = @FirstLastNameStudent, SecondLastNameStudent = @SecondLastNameStudent, PictureStudent = @PictureStudent  WHERE IDStudent = @IDStudent;";
+                    string tsql = "UPDATE Teacher SET NameTeacher = @NameTeacher, FirstLastNameTeacher = @FirstLastNameTeacher, SecondLastNameTeacher = @SecondLastNameTeacher, PictureTeacher = @PictureTeacher  WHERE IDTeacher = @IDTeacher;";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
@@ -147,6 +147,7 @@ namespace WebApiEscuela.Models
                         cmd.Parameters.AddWithValue("@FirstLastNameTeacher", FirstLastNameTeacher);
                         cmd.Parameters.AddWithValue("@SecondLastNameTeacher", SecondLastNameTeacher);
                         cmd.Parameters.AddWithValue("@PictureTeacher", PictureTeacher);
+                        cmd.Parameters.AddWithValue("@MailTeacher", MailTeacher);
                         cmd.Parameters.AddWithValue("@IDTeacher", IDTeacher);
                         cmd.ExecuteNonQuery();
                         return new ResponseModel
@@ -179,7 +180,7 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "INSERT INTO Student (NameStudent, FirstLastNameStudent, SecondLastNameStudent, Grade1P, Grade2P, Grade3P, PictureStudent, PasswordStudent, MailStudent) VALUES(@NameStudent, @FirstLastNameStudent, @SecondLastNameStudent,@Grade1P, @Grade2P, @Grade3P, @PictureStudent, @PasswordStudent, @MailStudent ); SELECT SCOPE_IDENTITY();";
+                    string tsql = "INSERT INTO Teacher (NameTeacher, FirstLastNameTeacher, SecondLastNameTeacher, PictureTeacher, PasswordTeacher, MailTeacher) VALUES(@NameTeacher, @FirstLastNameTeacher, @SecondLastNameTeacher,@PictureTeacher, @PasswordTeacher, @MailTeacher ); SELECT SCOPE_IDENTITY();";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;

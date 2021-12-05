@@ -80,6 +80,66 @@ namespace WebApiEscuela.Models
 
 
 
+        public ResponseModel GetClassesbyTeacherID(int id)
+        {
+            List<ClassModel> list = new List<ClassModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE Class.IDTeacher = @IDTeacher";
+                    using (SqlCommand cmd = new SqlCommand(tsql, conn))
+                    {
+
+                        cmd.Parameters.AddWithValue("@IDTeacher", id);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                list.Add(new ClassModel
+                                {
+                                    IDClass = (int)reader["IDClass"],
+                                    IDTeacher = (int)reader["IDTeacher"],
+                                    NameClass = reader["NameClass"].ToString(),
+                                    DescriptionClass = reader["DescriptionClass"].ToString(),
+                                    PictureClass = reader["PictureClass"].ToString(),
+                                    Teacher = new TeacherModel
+                                    {
+                                        IDTeacher = (int)reader["IDTeacher"],
+                                        NameTeacher = reader["NameTeacher"].ToString(),
+                                        FirstLastNameTeacher = reader["FirstLastNameTeacher"].ToString(),
+                                        SecondLastNameTeacher = reader["SecondLastNameTeacher"].ToString(),
+                                        PictureTeacher = reader["PictureTeacher"].ToString(),
+                                        PasswordTeacher = reader["PasswordTeacher"].ToString(),
+                                        MailTeacher = reader["MailTeacher"].ToString()
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }
+                return new ResponseModel
+                {
+                    IsSuccess = true,
+                    Message = "Class were successfully obtained",
+                    Result = list
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    IsSuccess = false,
+                    Message = $"An error was generated while getting the class ({ex.Message})",
+                    Result = null
+                };
+            }
+
+        }
+
+
+
         public ResponseModel GetClassbyID(int id)
         {
             ClassModel obj = new ClassModel();
@@ -88,11 +148,11 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE IDTeacher = @IDTeacher";
+                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE IDClass = @IDClass";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
 
-                        cmd.Parameters.AddWithValue("@IDTeacher", id);
+                        cmd.Parameters.AddWithValue("@IDClass", id);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
@@ -122,7 +182,7 @@ namespace WebApiEscuela.Models
                 return new ResponseModel
                 {
                     IsSuccess = true,
-                    Message = "Teacher were successfully obtained",
+                    Message = "Class were successfully obtained",
                     Result = obj
                 };
             }
@@ -131,7 +191,7 @@ namespace WebApiEscuela.Models
                 return new ResponseModel
                 {
                     IsSuccess = false,
-                    Message = $"An error was generated while getting the teacher ({ex.Message})",
+                    Message = $"An error was generated while getting the class ({ex.Message})",
                     Result = null
                 };
             }
