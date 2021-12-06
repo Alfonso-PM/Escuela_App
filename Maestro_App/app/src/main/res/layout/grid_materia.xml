@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="classCls"
+            type="com.poapm.maestro_app.domain.model.Class" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,6 +23,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="10dp"
+                app:loadFromURLCircular="@{classCls.url}"
                 app:layout_constraintBottom_toTopOf="@id/txvName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +39,7 @@
                 android:lines="1"
                 android:textAlignment="center"
                 android:textSize="20sp"
+                android:text="@{classCls.nameCls}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/imgMateria"
                 app:layout_constraintStart_toStartOf="@id/imgMateria"
