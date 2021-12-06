@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/foodFragment"
+    <item android:id="@+id/LoginFragment"
         android:icon="@drawable/ic_account"
         android:orderInCategory="1"
         android:title="ok"
         app:showAsAction="always"/>
 
-    <item android:id="@+id/randomFragment"
+    <item android:id="@+id/MateriaFragment"
         android:icon="@drawable/ic_class"
         android:orderInCategory="2"
         android:title="ok"
         app:showAsAction="always"/>
-
-    <item android:id="@+id/accountFragment"
-        android:icon="@drawable/ic_account"
-        android:orderInCategory="3"
-        android:title="ok"
-        app:showAsAction="always"/>
-
-
-
 </menu>

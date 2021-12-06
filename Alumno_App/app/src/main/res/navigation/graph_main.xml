@@ -6,17 +6,30 @@
     app:startDestination="@id/foodFragment">
 
     <fragment
-        android:id="@+id/foodFragment"
+        android:id="@+id/LoginFragment"
         android:name="com.poapm.alumno_app.presentation.login.loginFragment"
-        android:label="loginFragment" />
+        android:label="loginFragment" >
+        <action
+            android:id="@+id/action_LoginFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/randomFragment"
+        android:id="@+id/MateriaFragment"
         android:name="com.poapm.alumno_app.presentation.materia.materiaFragment"
         android:label="materia_fragment"
-        tools:layout="@layout/materia_fragment" />
+        tools:layout="@layout/materia_fragment" >
+        <action
+            android:id="@+id/action_MateriaFragment_to_materiaDetailFragment"
+            app:destination="@id/materiaDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.poapm.alumno_app.presentation.account.accountFragment"
         android:label="account_fragment"
         tools:layout="@layout/account_fragment" />
+    <fragment
+        android:id="@+id/materiaDetailFragment"
+        android:name="com.poapm.alumno_app.presentation.materiaDetail.materiaDetailFragment"
+        android:label="materia_detail_fragment"
+        tools:layout="@layout/materia_detail_fragment" />
 </navigation>
