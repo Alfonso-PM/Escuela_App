@@ -9,16 +9,122 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageUser"
+            android:id="@+id/imgClass"
             android:layout_width="140dp"
             android:layout_height="170dp"
             android:src="@drawable/ic_account"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.150"
-            app:layout_constraintHorizontal_bias="0.500"/>
+            app:layout_constraintVertical_bias="0.074" />
+
+        <TextView
+            android:id="@+id/txvNameClass"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="496dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="155dp"
+            tools:text="BIOLOGIA" />
+
+        <TextView
+            android:id="@+id/txvDescriptionClass"
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:layout_marginBottom="312dp"
+            android:ellipsize="end"
+            android:lines="7"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+            android:scrollbars="vertical"
+            android:text="@tools:sample/lorem/random"/>
+        <TextView
+            android:id="@+id/txvProf"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginBottom="248dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:text="PROFESOR" />
+
+        <TextView
+            android:id="@+id/txvNameProfesor"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginBottom="204dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="txvProf"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="THANOS" />
+
+        <TextView
+            android:id="@+id/txvPaternoProfesor"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginBottom="160dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txvNameProfesor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="ALFRED" />
+
+        <TextView
+            android:id="@+id/txvMaternoProfesor"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginBottom="116dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txvPaternoProfesor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="MOLINA" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginBottom="64dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:text="HORARIO" />
+
+        <TextView
+            android:id="@+id/txvHoraio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginBottom="16dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="LUNES: 2:00 a 3:00 Y jUEVES 3:00 A 4:00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
