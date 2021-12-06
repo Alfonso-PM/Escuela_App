@@ -7,26 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.poapm.maestro_app.R
+import com.poapm.maestro_app.core.presentation.BaseFragment
 
-class materiaFragment : Fragment() {
+class materiaFragment : BaseFragment(R.layout.materia_fragment) {
+    override fun setBinding(view: View) {
 
-    companion object {
-        fun newInstance() = materiaFragment()
     }
 
-    private lateinit var viewModel: MateriaViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.materia_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MateriaViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

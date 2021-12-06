@@ -33,7 +33,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_nav" />
 
-
+        <include
+            android:id="@+id/progressView"
+            layout="@layout/progress"
+            android:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
