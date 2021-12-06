@@ -23,7 +23,7 @@ class MainActivity : BaseActivity() {
         get() = binding.fcvStuddent
 
     override fun setUpNavigation(navController: NavController) =
-        NavigationUI.setupWithNavController(binding.bnvMain, navController)
+        NavigationUI.setupWithNavController(binding.bnvMainD, navController)
 
     override fun showProgress(show: Boolean) {
         binding.progressView.isVisible=show
