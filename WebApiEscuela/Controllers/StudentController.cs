@@ -39,6 +39,12 @@ namespace WebApiEscuela.Controllers
             return new StudentModel().GetStudentbyNameAndPass(name, password);
         }
 
+        [HttpGet("/id+{id}+pass+{password}")]
+        public ResponseModel GetbyIDandPass(int id, string password)
+        {
+            return new StudentModel().GetStudentbyIDAndPass(id, password);
+        }
+
         // POST api/<StudentController>
         [HttpPost]
         public ResponseModel Post([FromBody] StudentModel student)

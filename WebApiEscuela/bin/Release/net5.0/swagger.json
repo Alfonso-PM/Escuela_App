@@ -406,6 +406,41 @@
         }
       }
     },
+    "/id+{id}+pass+{password}": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "path",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
     "/tch/Teacher": {
       "get": {
         "tags": [
@@ -569,6 +604,41 @@
             "name": "name",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseModel"
+            }
+          }
+        }
+      }
+    },
+    "/idt+{id}+passt+{password}": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
           },
           {
             "in": "path",

@@ -225,7 +225,60 @@ namespace WebApiEscuela.Models
         }
 
 
-        public ResponseModel GetStudentbyName(string name)
+        public ResponseModel GetTeacherbyIDAndPass(int id, string password)
+        {
+            TeacherModel obj = new TeacherModel();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string tsql = "SELECT * FROM Teacher WHERE IDTeacher = @IDTeacher AND PasswordTeacher = @PasswordTeacher ";
+                    using (SqlCommand cmd = new SqlCommand(tsql, conn))
+                    {
+
+                        cmd.Parameters.AddWithValue("@IDTeacher", id);
+                        cmd.Parameters.AddWithValue("@PasswordTeacher", password);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                obj = (new TeacherModel
+                                {
+
+                                    IDTeacher = (int)reader["IDTeacher"],
+                                    NameTeacher = reader["NameTeacher"].ToString(),
+                                    FirstLastNameTeacher = reader["FirstLastNameTeacher"].ToString(),
+                                    SecondLastNameTeacher = reader["SecondLastNameTeacher"].ToString(),
+                                    PictureTeacher = reader["PictureTeacher"].ToString(),
+                                    PasswordTeacher = reader["PasswordTeacher"].ToString(),
+                                    MailTeacher = reader["MailTeacher"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+                return new ResponseModel
+                {
+                    IsSuccess = true,
+                    Message = "Student were successfully obtained",
+                    Result = obj
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    IsSuccess = false,
+                    Message = $"An error was generated while getting the student ({ex.Message})",
+                    Result = null
+                };
+            }
+
+        }
+
+
+        public ResponseModel GetTeacherbyName(string name)
         {
             TeacherModel obj = new TeacherModel();
             try

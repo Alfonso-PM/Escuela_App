@@ -27,13 +27,19 @@ namespace WebApiEscuela.Controllers
         [HttpGet("/namet+{name}")]
         public ResponseModel GetbyName(string name)
         {
-            return new StudentModel().GetStudentbyName(name);
+            return new TeacherModel().GetTeacherbyName(name);
         }
 
         [HttpGet("/namet+{name}+passt+{password}")]
         public ResponseModel GetbyNameandPass(string name, string password)
         {
-            return new StudentModel().GetStudentbyNameAndPass(name, password);
+            return new TeacherModel().GetTeacherbyNameAndPass(name, password);
+        }
+
+        [HttpGet("/idt+{id}+passt+{password}")]
+        public ResponseModel GetbyIDandPass(int id, string password)
+        {
+            return new TeacherModel().GetTeacherbyIDAndPass(id, password);
         }
 
         // POST api/<TeacherController>
