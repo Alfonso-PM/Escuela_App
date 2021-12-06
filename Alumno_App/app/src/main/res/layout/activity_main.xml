@@ -14,14 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@id/bnvMain"
+            app:layout_constraintBottom_toTopOf="@id/bnvMainD"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/main_graph"/>
+            app:navGraph="@navigation/graph_main"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvMain"
+            android:id="@+id/bnvMainD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
@@ -31,7 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_nav" />
+            app:menu="@menu/menu_navigation" />
 
         <include
             android:id="@+id/progressView"
