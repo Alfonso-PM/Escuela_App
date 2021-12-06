@@ -13,12 +13,19 @@ import com.poapm.maestro_app.core.presentation.BaseFragment
 import com.poapm.maestro_app.core.presentation.BaseViewState
 import com.poapm.maestro_app.databinding.MateriaFragmentBinding
 import com.poapm.maestro_app.domain.model.Class
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
+import kotlinx.coroutines.DelicateCoroutinesApi
 
+@AndroidEntryPoint
+@WithFragmentBindings
+@DelicateCoroutinesApi
 class materiaFragment : BaseFragment(R.layout.materia_fragment) {
 
     private lateinit var binding: MateriaFragmentBinding
     private  val adapter: MateriaAdapter by lazy { MateriaAdapter() }
     private val materiaViewModel by viewModels<MateriaViewModel>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +49,7 @@ class materiaFragment : BaseFragment(R.layout.materia_fragment) {
 
         binding.lifecycleOwner = this
 
-
+        materiaViewModel.doGetAllClasses("")
     }
 
     private fun setUpAdapter(classCls : List<Class>) {
