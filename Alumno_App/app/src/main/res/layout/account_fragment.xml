@@ -9,17 +9,98 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageUser"
-        android:layout_width="140dp"
-        android:layout_height="170dp"
-        android:src="@drawable/ic_account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.150"
-        app:layout_constraintHorizontal_bias="0.500"/>
+        <ImageView
+            android:id="@+id/imgStudent"
+            android:layout_width="140dp"
+            android:layout_height="170dp"
+            android:src="@drawable/ic_account"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.055" />
+
+        <TextView
+            android:id="@+id/txvNombre"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="496dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="155dp"
+            tools:text="IVAN" />
+
+        <TextView
+            android:id="@+id/txvPaterno"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="464dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="155dp"
+            tools:text="CASTILLO" />
+
+        <TextView
+            android:id="@+id/txvMaterno"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="432dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="155dp"
+            tools:text="FLORES" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="356dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="155dp"
+            tools:text="ALUMNO" />
+
+
+        <TextView
+            android:id="@+id/txvC"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="284dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="CORREO" />
+
+        <TextView
+            android:id="@+id/txvCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txvC"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="459dp"
+            tools:text="ivan123@gmail.COM" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
