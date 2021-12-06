@@ -12,7 +12,7 @@ namespace WebApiEscuela.Models
 
         public int IDClass { get; set; }
 
-        public int IDTeacher { get; set; }
+        public int IDTeachertch { get; set; }
 
         public string NameClass { get; set; }
 
@@ -100,7 +100,7 @@ namespace WebApiEscuela.Models
                                 list.Add(new ClassModel
                                 {
                                     IDClass = (int)reader["IDClass"],
-                                    IDTeacher = (int)reader["IDTeacher"],
+                                    IDTeachertch = (int)reader["IDTeacher"],
                                     NameClass = reader["NameClass"].ToString(),
                                     DescriptionClass = reader["DescriptionClass"].ToString(),
                                     PictureClass = reader["PictureClass"].ToString(),
@@ -212,7 +212,7 @@ namespace WebApiEscuela.Models
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
-                        cmd.Parameters.AddWithValue("@IDTeacher", IDTeacher);
+                        cmd.Parameters.AddWithValue("@IDTeacher", IDTeachertch);
                         cmd.Parameters.AddWithValue("@NameClass", NameClass);
                         cmd.Parameters.AddWithValue("@DescriptionClass", DescriptionClass);
                         cmd.Parameters.AddWithValue("@PictureClass", PictureClass);

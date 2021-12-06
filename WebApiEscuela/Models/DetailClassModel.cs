@@ -12,9 +12,9 @@ namespace WebApiEscuela.Models
 
         public int IDDetailClass { get; set; }
 
-        public int IDClass { get; set; }
+        public int IDClassdtl { get; set; }
 
-        public int IDStudent { get; set; }
+        public int IDStudentdtl { get; set; }
 
         public StudentModel Student { get; set; }
 
@@ -43,7 +43,7 @@ namespace WebApiEscuela.Models
                                     Class = new ClassModel
                                     {
                                         IDClass = (int)reader["IDClass"],
-                                        IDTeacher = (int)reader["IDTeacher"],
+                                        IDTeachertch = (int)reader["IDTeacher"],
                                         NameClass = reader["NameClass"].ToString(),
                                         DescriptionClass = reader["DescriptionClass"].ToString(),
                                         PictureClass = reader["PictureClass"].ToString()
@@ -112,7 +112,7 @@ namespace WebApiEscuela.Models
                                     Class = new ClassModel
                                     {
                                         IDClass = (int)reader["IDClass"],
-                                        IDTeacher = (int)reader["IDTeacher"],
+                                        IDTeachertch = (int)reader["IDTeacher"],
                                         NameClass = reader["NameClass"].ToString(),
                                         DescriptionClass = reader["DescriptionClass"].ToString(),
                                         PictureClass = reader["PictureClass"].ToString()
@@ -180,7 +180,7 @@ namespace WebApiEscuela.Models
                                     Class = new ClassModel
                                     {
                                         IDClass = (int)reader["IDClass"],
-                                        IDTeacher = (int)reader["IDTeacher"],
+                                        IDTeachertch = (int)reader["IDTeacher"],
                                         NameClass = reader["NameClass"].ToString(),
                                         DescriptionClass = reader["DescriptionClass"].ToString(),
                                         PictureClass = reader["PictureClass"].ToString()
@@ -237,8 +237,8 @@ namespace WebApiEscuela.Models
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
-                        cmd.Parameters.AddWithValue("@IDClass", IDClass);
-                        cmd.Parameters.AddWithValue("@IDStudent", IDStudent);
+                        cmd.Parameters.AddWithValue("@IDClass", IDClassdtl);
+                        cmd.Parameters.AddWithValue("@IDStudent", IDStudentdtl);
                         newID = cmd.ExecuteScalar();
                         if (newID != null && newID.ToString().Length > 0)
                         {

@@ -23,6 +23,19 @@ namespace WebApiEscuela.Controllers
             return new TeacherModel().GetTeacherbyID(id);
         }
 
+
+        [HttpGet("/namet+{name}")]
+        public ResponseModel GetbyName(string name)
+        {
+            return new StudentModel().GetStudentbyName(name);
+        }
+
+        [HttpGet("/namet+{name}+passt+{password}")]
+        public ResponseModel GetbyNameandPass(string name, string password)
+        {
+            return new StudentModel().GetStudentbyNameAndPass(name, password);
+        }
+
         // POST api/<TeacherController>
         [HttpPost]
         public ResponseModel Post([FromBody] TeacherModel teacher)
