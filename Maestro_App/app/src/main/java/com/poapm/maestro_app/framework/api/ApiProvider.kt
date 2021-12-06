@@ -8,12 +8,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class ApiProvider @Inject constructor(){
+class ApiProvider @Inject constructor() {
 
-
-
-    private val retrofit: Retrofit
-
+    private var retrofit: Retrofit
 
     init {
         val httpClientBuilder = OkHttpClient.Builder()
@@ -21,9 +18,9 @@ class ApiProvider @Inject constructor(){
             .readTimeout(45, TimeUnit.SECONDS)
             .writeTimeout(45, TimeUnit.SECONDS)
 
-        if(BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             val logging = HttpLoggingInterceptor().apply {
-                level= HttpLoggingInterceptor.Level.BODY
+                level = HttpLoggingInterceptor.Level.BODY
             }
 
             httpClientBuilder.addInterceptor(logging)
