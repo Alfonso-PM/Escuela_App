@@ -10,9 +10,10 @@ import com.poapm.maestro_app.R
 import com.poapm.maestro_app.core.presentation.BaseFragment
 
 class loginFrangment : BaseFragment(R.layout.login_frangment_fragment) {
+
+
     override fun setBinding(view: View) {
 
     }
-
 
 }

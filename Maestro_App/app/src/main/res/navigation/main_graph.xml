@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/loginFrangment">
+    app:startDestination="@id/accountFragment">
     <fragment
         android:id="@+id/loginFrangment"
         android:name="com.poapm.maestro_app.presentation.login.loginFrangment"
@@ -17,7 +17,11 @@
         android:id="@+id/accountFragment"
         android:name="com.poapm.maestro_app.presentation.account.AccountFragment"
         android:label="account_fragment"
-        tools:layout="@layout/account_fragment" />
+        tools:layout="@layout/account_fragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_loginFrangment"
+            app:destination="@id/loginFrangment" />
+    </fragment>
     <fragment
         android:id="@+id/materiaFragment"
         android:name="com.poapm.maestro_app.presentation.materia.materiaFragment"

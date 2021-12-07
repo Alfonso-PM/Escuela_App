@@ -88,7 +88,7 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE Class.IDTeacher = @IDTeacher";
+                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE Teacher.IDTeacher = @IDTeacher";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
 
