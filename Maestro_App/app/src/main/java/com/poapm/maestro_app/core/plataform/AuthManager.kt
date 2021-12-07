@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 class AuthManager @Inject constructor(private val context: Context) {
 
-    private val PREFS_KEY = "FOOD_PREFS"
-    private val USER_KEY = "USER"
+    private val PREFS_KEY = "CLASS_PREFS"
+    private val USER_KEY = "TEACHER"
 
     private var preferences: SharedPreferences =
         context.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
