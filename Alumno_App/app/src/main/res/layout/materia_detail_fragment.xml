@@ -69,7 +69,6 @@
             android:lines="1"
             android:textSize="19sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="txvProf"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="16dp"
             tools:text="THANOS" />

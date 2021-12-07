@@ -3,4 +3,5 @@
     <string name="login">LOGIN</string>
     <string name="password_txt">TYPE YOUR PASSWORD</string>
     <string name="ype_your_id">YPE YOUR ID</string>
+    <string name="notfound">"User not Found "</string>
 </resources>
