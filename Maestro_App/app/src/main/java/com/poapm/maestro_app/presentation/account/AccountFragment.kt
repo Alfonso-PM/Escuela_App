@@ -1,32 +1,60 @@
 package com.poapm.maestro_app.presentation.account
 
-import androidx.lifecycle.ViewModelProvider
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.poapm.maestro_app.R
+import com.poapm.maestro_app.core.extension.failure
+import com.poapm.maestro_app.core.extension.observe
+import com.poapm.maestro_app.core.presentation.BaseFragment
+import com.poapm.maestro_app.core.presentation.BaseViewState
+import com.poapm.maestro_app.databinding.AccountFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
+import kotlinx.coroutines.DelicateCoroutinesApi
 
-class AccountFragment : Fragment() {
+@AndroidEntryPoint
+@WithFragmentBindings
+@DelicateCoroutinesApi
+class AccountFragment : BaseFragment(R.layout.account_fragment) {
 
-    companion object {
-        fun newInstance() = AccountFragment()
+    private lateinit var binding: AccountFragmentBinding
+
+    private val accountViewModel by viewModels<AccountViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        accountViewModel.apply {
+            observe(state, ::onViewStateChanged)
+            failure(failure, ::handleFailure)
+        }
+
     }
 
-    private lateinit var viewModel: AccountViewModel
+    override fun onResume() {
+        super.onResume()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.account_fragment, container, false)
+        accountViewModel.getLocalTeacher()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewStateChanged(state: BaseViewState?) {
+        super.onViewStateChanged(state)
+        when (state) {
+            is AccountViewState.LoggedUser -> binding.teacher = state.teacher
+            is AccountViewState.UserNotFound -> navController.navigate(AccountFragmentDirections.actionAccountFragmentToLoginFrangment())
+        }
     }
+
+    override fun setBinding(view: View) {
+        binding = AccountFragmentBinding.bind(view)
+
+        binding.apply {
+            lifecycleOwner = this@AccountFragment
+            btnLogout.setOnClickListener { accountViewModel.doLogout() }
+        }
+    }
+
 
 }

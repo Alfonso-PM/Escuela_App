@@ -10,4 +10,6 @@ abstract class AccountViewState : BaseViewState() {
 
     object UserNotFound : BaseViewState()
 
+    data class TeacherReceived(val teacher: List<Teacher>): BaseViewState()
+
 }
