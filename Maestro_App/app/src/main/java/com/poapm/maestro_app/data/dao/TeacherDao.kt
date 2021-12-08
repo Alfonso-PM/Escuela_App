@@ -9,7 +9,7 @@ interface TeacherDao {
 
     @Transaction
     @Query("SELECT * FROM Teacher WHERE Teacher.idTeacher = :id AND Teacher.password = :password")
-    fun findTeacher(id: String, password: String): Teacher?
+    fun findTeacher(id: Int, password: String): Teacher?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveTeacher(teacher: List<Teacher>): List<Long>

@@ -13,7 +13,7 @@ interface TeacherRepository {
 
     fun doLogout(): Either<Failure, Boolean>
 
-    fun findTeacher(id: String, password: String): Either<Failure, Teacher>
+    fun findTeacher(id: Int, password: String): Either<Failure, Teacher>
 
     fun saveTeacher(teacher: List<Teacher>): Either<Failure, Boolean>
 

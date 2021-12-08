@@ -39,7 +39,7 @@ class TeacherRepositoryImpl  @Inject constructor(
         return Either.Right(true)
     }
 
-    override fun findTeacher(id: String, password: String): Either<Failure, Teacher> {
+    override fun findTeacher(id: Int, password: String): Either<Failure, Teacher> {
         val result = teacherDao.findTeacher(id, password)
 
         return result?.let {
