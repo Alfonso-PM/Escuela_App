@@ -1,32 +1,28 @@
 package com.poapm.maestro_app.presentation.materiaDetail
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+
 import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.poapm.maestro_app.R
+import com.poapm.maestro_app.core.presentation.BaseFragment
+import com.poapm.maestro_app.databinding.MateriaDetailFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.WithFragmentBindings
 
-class materiaDetailFragment : Fragment() {
+@AndroidEntryPoint
+@WithFragmentBindings
+class materiaDetailFragment : BaseFragment(R.layout.materia_detail_fragment) {
+    private lateinit var binding: MateriaDetailFragmentBinding
+    private val args: materiaDetailFragmentArgs by navArgs()
 
-    companion object {
-        fun newInstance() = materiaDetailFragment()
+    override fun setBinding(view: View) {
+
+        binding = MateriaDetailFragmentBinding.bind(view)
+
+        binding.apply {
+            lifecycleOwner = this@materiaDetailFragment
+            classDetail = args.classDetail
+        }
+
     }
-
-    private lateinit var viewModel: MateriaDetailViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.materia_detail_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MateriaDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
