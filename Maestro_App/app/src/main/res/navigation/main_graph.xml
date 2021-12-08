@@ -36,6 +36,10 @@
         android:name="com.poapm.maestro_app.presentation.materiaDetail.materiaDetailFragment"
         android:label="materia_detail_fragment"
         tools:layout="@layout/materia_detail_fragment" >
+        <argument
+            android:name="classDetail"
+            app:argType="com.poapm.maestro_app.domain.model.Class" />
+
         <action
             android:id="@+id/action_materiaDetailFragment_to_studentFragment"
             app:destination="@id/studentFragment" />

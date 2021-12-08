@@ -57,7 +57,7 @@ class materiaFragment : BaseFragment(R.layout.materia_fragment) {
         adapter.addData(classCls)
 
         adapter.listener = {
-            navController.navigate(materiaFragmentDirections.actionMateriaFragmentToMateriaDetailFragment())
+            navController.navigate(materiaFragmentDirections.actionMateriaFragmentToMateriaDetailFragment(it))
         }
 
         binding.rcMateria.apply {

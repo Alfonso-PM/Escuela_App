@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/loginFrangment"
+        android:id="@+id/accountFragment"
         android:icon="@drawable/ic_account"
         android:orderInCategory="1"
         android:title="Cuenta"
