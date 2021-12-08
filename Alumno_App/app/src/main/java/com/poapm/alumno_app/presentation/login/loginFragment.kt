@@ -7,26 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.poapm.alumno_app.R
+import com.poapm.alumno_app.core.presentation.BaseFragment
 
-class loginFragment : Fragment() {
+class loginFragment : BaseFragment(R.layout.login_fragment) {
+    override fun setBinding(view: View) {
 
-    companion object {
-        fun newInstance() = loginFragment()
     }
 
-    private lateinit var viewModel: LoginViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.login_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
