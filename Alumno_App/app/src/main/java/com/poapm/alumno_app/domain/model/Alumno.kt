@@ -1,10 +1,13 @@
 package com.poapm.alumno_app.domain.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity
 @JsonClass(generateAdapter = true)
 class Alumno(
@@ -19,5 +22,5 @@ class Alumno(
     @Json(name = "grade3P") val p3: Int = 0,
     @Json(name = "passwordStudent") var password: String = "",
     @Json(name = "mailStudent") var mail: String = ""
-) {
+): Parcelable{
 }
