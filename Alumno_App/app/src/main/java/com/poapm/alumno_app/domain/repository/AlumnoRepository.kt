@@ -7,7 +7,7 @@ import com.poapm.alumno_app.domain.model.Alumno
 
 interface AlumnoRepository {
 
-    fun findAlumno(id: String, password: String): Either<Failure, Alumno>
+    fun findAlumno(id: Int, password: String): Either<Failure, Alumno>
 
     fun getAllAlumnos(): Either<Failure, AlumnoResponse>
 

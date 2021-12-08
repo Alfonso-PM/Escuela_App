@@ -4,6 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.login.loginFrangment">
 
+    <data>
+
+        <variable
+            name="logVM"
+            type="com.poapm.alumno_app.presentation.login.LoginViewModel" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,50 +21,47 @@
             android:layout_width="140dp"
             android:layout_height="170dp"
             android:src="@drawable/ic_account"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.150"
-            app:layout_constraintHorizontal_bias="0.500"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
-            android:id="@+id/edtUsername"
+            android:id="@+id/edtIdTeacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Username"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:inputType="number"
+            android:text="@={`` + logVM.idalumno}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.550" />
+            app:layout_constraintTop_toBottomOf="@+id/imageUser"/>
 
         <EditText
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="70dp"
             android:hint="Password"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@={logVM.password}"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.650" />
+            app:layout_constraintTop_toBottomOf="@+id/edtIdTeacher"/>
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="LOGIN"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="60dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.750"/>
+            app:layout_constraintTop_toBottomOf="@id/edtPassword"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

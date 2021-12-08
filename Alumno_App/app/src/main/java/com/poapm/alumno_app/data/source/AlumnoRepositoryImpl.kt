@@ -19,7 +19,7 @@ class AlumnoRepositoryImpl @Inject constructor(
     private val alumnoDao: AlumnoDao,
     private val networkHandler: NetworkHandler
     ) : AlumnoRepository, ApiRequest {
-    override fun findAlumno(id: String, password: String): Either<Failure, Alumno> {
+    override fun findAlumno(id: Int, password: String): Either<Failure, Alumno> {
         val result = alumnoDao.findAlumno(id, password)
 
         return result?.let {
@@ -47,11 +47,11 @@ class AlumnoRepositoryImpl @Inject constructor(
         return Either.Right(true)
     }
 
-    override fun saveAlumno(alumno: List<Alumno>): Either<Failure, Boolean> {
-        val result = alumnoDao.saveAlumno(alumno)
-        return if (result.size == alumno.size) Either.Right(true)
-        else Either.Left(Failure.DatabaseError)
-    }
+        override fun saveAlumno(alumno: List<Alumno>): Either<Failure, Boolean> {
+            val result = alumnoDao.saveAlumno(alumno)
+            return if (result.size == alumno.size) Either.Right(true)
+            else Either.Left(Failure.DatabaseError)
+        }
 
     override fun updateAlumno(alumno: Alumno): Either<Failure, Boolean> {
         TODO("Not yet implemented")

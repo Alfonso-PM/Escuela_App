@@ -25,16 +25,20 @@ BaseViewModel(){
 
     //CREAR FUNCION QUE TRAIGA LOS ALUMNOS (SE GAURDA EN LA BASE DE DATOS)
 
-    fun getAlum(){
-        getAlumno(UseCase.None()){}
+    fun getAlumn(){
+        getAlumno(UseCase.None()){
+            it.fold(::alumnoNotFound) { localUser ->
+                setAlumnoInfo(localUser)
+            }
+        }
     }
 
-    fun getAllAlumn(name:String){
+    fun getAllAlumno(name:String){
         getAllAlumnos(name){
             it.fold(::handleFailure){
-                state.value = AccountViewState.AlumnoReceived(it.alumnos ?: listOf())
+                state.value = AccountViewState.AlumnoReceived(it.result ?: listOf())
 
-                saveAlumn(it.alumnos ?: listOf())
+                saveAlumn(it.result ?: listOf())
                 true
             }
         }

@@ -22,7 +22,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        setProperty("archivesBaseName", "TeacherApp_v$versionCode($versionName)")
+        setProperty("archivesBaseName", "AlumnoApp_v$versionCode($versionName)")
         buildConfigField "String", "API_BASE_URL", "\"\""
     }
 
@@ -42,6 +42,25 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    flavorDimensions "examen"
+    productFlavors {
+        dev {
+            dimension "examen"
+            versionNameSuffix "-dev"
+            ext {
+                buildConfigField "String", "API_BASE_URL", "\"https://webapiescuela.azurewebsites.net/\""
+            }
+        }
+        prod {
+            dimension "examen"
+            versionNameSuffix ""
+            ext {
+                buildConfigField "String", "API_BASE_URL", "\"https://webapiescuela.azurewebsites.net/\""
+            }
+        }
+    }
+
 }
 
 dependencies {
