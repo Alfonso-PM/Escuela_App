@@ -5,4 +5,5 @@
     <string name="login">LOGIN</string>
     <string name="not_found">ID or Password are not correct</string>
     <string name="log_out_txt">LOG OUT</string>
+    <string name="e_mail_txt">E-MAIL</string>
 </resources>

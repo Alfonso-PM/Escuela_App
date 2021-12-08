@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.poapm.maestro_app.R
 import com.poapm.maestro_app.core.extension.failure
+import com.poapm.maestro_app.core.extension.loadFromURLCircular
 import com.poapm.maestro_app.core.extension.observe
 import com.poapm.maestro_app.core.presentation.BaseFragment
 import com.poapm.maestro_app.core.presentation.BaseViewState
@@ -54,6 +55,16 @@ class AccountFragment : BaseFragment(R.layout.account_fragment) {
             lifecycleOwner = this@AccountFragment
             btnLogout.setOnClickListener { accountViewModel.doLogout() }
         }
+
+        val url = binding.teacher?.url
+        val default = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rae.es%2Fnoticia%2Fcorpus-del-espanol-del-siglo-xxi-random&psig=AOvVaw2-uuMuSARxHfhojPSrNfH1&ust=1639012080560000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNCN0_uB0_QCFQAAAAAdAAAAABAD"
+        if(binding.teacher?.url != null){
+            url?.let { binding.imgStudent.loadFromURLCircular(it) }
+        }else{
+            binding.imgStudent.loadFromURLCircular(default)
+        }
+
+        accountViewModel.doGetAllTeachers("")
     }
 
 

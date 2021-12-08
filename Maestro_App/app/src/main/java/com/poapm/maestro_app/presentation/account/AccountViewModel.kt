@@ -23,7 +23,12 @@ class AccountViewModel @Inject constructor(
     BaseViewModel() {
 
     fun getLocalTeacher() {
-        getLocalTeacher(UseCase.None()) {}}
+        getLocalTeacher(UseCase.None()) {
+            it.fold(::teacherNotFound) { localUser ->
+                setTeacherInfo(localUser)
+            }
+        }
+    }
 
     fun doGetAllTeachers(name: String){
         getAllTeachers(name) {
@@ -56,6 +61,10 @@ class AccountViewModel @Inject constructor(
     private fun teacherNotFound(failure: Failure) {
         state.value = AccountViewState.UserNotFound
         handleFailure(failure)
+    }
+
+    private fun setTeacherInfo(teacher: Teacher) {
+        state.value = AccountViewState.LoggedUser(teacher)
     }
 
 
