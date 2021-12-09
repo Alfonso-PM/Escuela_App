@@ -7,8 +7,8 @@ import com.squareup.moshi.Moshi
 import javax.inject.Inject
 
 class AuthenticationM @Inject constructor(private val context: Context){
-    private val PREFS_KEY = "PREFS"
-    private val USER_KEY = "USER"
+    private val PREFS_KEY = "_CLASSPREFS"
+    private val USER_KEY = "ALUMNO"
 
     private var preferences: SharedPreferences =
         context.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)

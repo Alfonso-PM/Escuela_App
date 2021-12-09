@@ -7,5 +7,9 @@ import com.poapm.alumno_app.domain.model.Alumno
 import com.poapm.alumno_app.domain.repository.AlumnoRepository
 import javax.inject.Inject
 
-class FindAlumno {
+class FindAlumno @Inject constructor(private val alumnoRepository: AlumnoRepository) :
+    UseCase<Alumno, Alumno>() {
+
+    override suspend fun run(params: Alumno) = alumnoRepository.findAlumno(params.idStudent, params.passwordStudent)
+
 }

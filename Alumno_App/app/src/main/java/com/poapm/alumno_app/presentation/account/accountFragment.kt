@@ -40,7 +40,7 @@ class accountFragment : BaseFragment(R.layout.account_fragment) {
     override fun onResume() {
         super.onResume()
 
-        accountViewModel.getAlum()
+        accountViewModel.getAlumn()
     }
 
     override fun setBinding(view: View) {
@@ -51,15 +51,15 @@ class accountFragment : BaseFragment(R.layout.account_fragment) {
             btnLogout.setOnClickListener { accountViewModel.doLogou() }
         }
 
-        val url = binding.alumno?.urlThumb
+        val url = binding.alumno?.pictureStudent
         val default = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rae.es%2Fnoticia%2Fcorpus-del-espanol-del-siglo-xxi-random&psig=AOvVaw2-uuMuSARxHfhojPSrNfH1&ust=1639012080560000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNCN0_uB0_QCFQAAAAAdAAAAABAD"
-        if(binding.alumno?.urlThumb != null){
+        if(binding.alumno?.pictureStudent != null){
             url?.let { binding.imgStudent.loadFromURLCircular(it) }
         }else{
             binding.imgStudent.loadFromURLCircular(default)
         }
 
-        accountViewModel.getAllAlumn("")
+        accountViewModel.getAllAlumno("")
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {

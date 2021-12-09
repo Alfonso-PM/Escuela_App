@@ -7,8 +7,8 @@ import com.poapm.alumno_app.domain.model.Alumno
 interface AlumnoDao {
 
     @Transaction
-    @Query("SELECT * FROM Alumno WHERE Alumno.idStudent = :id AND Alumno.password = :password")
-    fun findAlumno(id: String, password: String): Alumno?
+    @Query("SELECT * FROM Alumno WHERE Alumno.idStudent = :id AND Alumno.passwordStudent = :password")
+    fun findAlumno(id: Int, password: String): Alumno?
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
