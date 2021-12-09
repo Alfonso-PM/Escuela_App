@@ -3,10 +3,13 @@ package com.poapm.maestro_app.core.di
 import com.poapm.maestro_app.core.plataform.AuthManager
 import com.poapm.maestro_app.core.plataform.NetworkHandler
 import com.poapm.maestro_app.data.api.ClassApi
+import com.poapm.maestro_app.data.api.DetailApi
 import com.poapm.maestro_app.data.api.TeacherApi
 import com.poapm.maestro_app.data.source.ClassRepositoryImpl
+import com.poapm.maestro_app.data.source.DetailRepositoryImpl
 import com.poapm.maestro_app.data.source.TeacherRepositoryImpl
 import com.poapm.maestro_app.domain.repository.ClassRepository
+import com.poapm.maestro_app.domain.repository.DetailRepository
 import com.poapm.maestro_app.domain.repository.TeacherRepository
 import com.poapm.maestro_app.framework.api.ApiProvider
 import com.poapm.maestro_app.framework.db.MaestroDb
@@ -42,5 +45,13 @@ object RepositoryModule {
             maestroDb.teacherDao(),
             networkHandler
         )
+
+    @Provides
+    @Singleton
+    fun provideDetailRepository(
+        apiProvider: ApiProvider,
+        networkHandler: NetworkHandler
+    ): DetailRepository =
+        DetailRepositoryImpl(apiProvider.getEndpoint(DetailApi::class.java), networkHandler = networkHandler)
 
 }

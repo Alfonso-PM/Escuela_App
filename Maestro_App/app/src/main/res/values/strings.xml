@@ -6,4 +6,6 @@
     <string name="not_found">ID or Password are not correct</string>
     <string name="log_out_txt">LOG OUT</string>
     <string name="e_mail_txt">E-MAIL</string>
+    <string name="schedule_txt">SCHEDULE:</string>
+    <string name="view_students_txt">VIEW STUDENTS</string>
 </resources>

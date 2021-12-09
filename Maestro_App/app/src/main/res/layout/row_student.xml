@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detail"
+            type="com.poapm.maestro_app.domain.model.DetailClass" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgStd"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadFromURLCircular="@{detail.student.urlStudent}"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:text="@{detail.student.nameStudent}"
+                app:layout_constraintBottom_toTopOf="@id/txvCategory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgStd"
+                app:layout_constraintTop_toTopOf="@id/imgStd"
+                tools:text="Lupita" />
+
+            <TextView
+                android:id="@+id/txvCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{detail.student.mailStd}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgStd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txvName"
+                app:layout_constraintTop_toBottomOf="@id/txvName"
+                tools:text="xd@gmail.com" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
