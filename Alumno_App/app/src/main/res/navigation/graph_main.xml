@@ -36,5 +36,10 @@
         android:id="@+id/materiaDetailFragment"
         android:name="com.poapm.alumno_app.presentation.materiaDetail.materiaDetailFragment"
         android:label="materia_detail_fragment"
-        tools:layout="@layout/materia_detail_fragment" />
+        tools:layout="@layout/materia_detail_fragment" >
+    <argument
+        android:name="classDetail"
+        app:argType="com.poapm.alumno_app.domain.model.Class" />
+    </fragment>
+
 </navigation>

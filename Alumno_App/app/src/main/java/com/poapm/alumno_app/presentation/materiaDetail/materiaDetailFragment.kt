@@ -6,27 +6,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.poapm.alumno_app.R
+import com.poapm.alumno_app.core.presentation.BaseFragment
+import com.poapm.alumno_app.databinding.MateriaDetailFragmentBinding
 
-class materiaDetailFragment : Fragment() {
+class materiaDetailFragment : BaseFragment(R.layout.materia_detail_fragment) {
+    private lateinit var binding: MateriaDetailFragmentBinding
+    private val args: materiaDetailFragmentArgs by navArgs()
 
-    companion object {
-        fun newInstance() = materiaDetailFragment()
+
+    override fun setBinding(view: View) {
+        binding = MateriaDetailFragmentBinding.bind(view)
+
+        binding.apply {
+            lifecycleOwner = this@materiaDetailFragment
+            classDetail = args.classDetail
+        }
     }
 
-    private lateinit var viewModel: MateriaDetailViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.materia_detail_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MateriaDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
