@@ -679,6 +679,9 @@
         "pictureClass": {
           "type": "string"
         },
+        "schedule": {
+          "type": "string"
+        },
         "teacher": {
           "$ref": "#/definitions/TeacherModel"
         }
@@ -696,6 +699,18 @@
           "type": "integer"
         },
         "idStudentdtl": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "grade1P": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "grade2P": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "grade3P": {
           "format": "int32",
           "type": "integer"
         },
@@ -737,18 +752,6 @@
         },
         "pictureStudent": {
           "type": "string"
-        },
-        "grade1P": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "grade2P": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "grade3P": {
-          "format": "int32",
-          "type": "integer"
         },
         "passwordStudent": {
           "type": "string"

@@ -16,6 +16,12 @@ namespace WebApiEscuela.Models
 
         public int IDStudentdtl { get; set; }
 
+        public int Grade1P { get; set; }
+
+        public int Grade2P { get; set; }
+
+        public int Grade3P { get; set; }
+
         public StudentModel Student { get; set; }
 
         public ClassModel Class { get; set; }
@@ -30,7 +36,7 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "SELECT * FROM DetailClass INNER JOIN Class ON DetailClass.IDClass = Class.IDClass INNER JOIN Student ON DetailClass.IDStudent = Student.IDStudent";
+                    string tsql = "SELECT * FROM DetailClass INNER JOIN Class ON DetailClass.IDClass = Class.IDClass INNER JOIN Student ON DetailClass.IDStudent = Student.IDStudent    INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -40,13 +46,27 @@ namespace WebApiEscuela.Models
                                 list.Add( new DetailClassModel
                                 {
                                     IDDetailClass = (int)reader["IDClass"],
+                                    Grade1P = (int)reader["Grade1P"],
+                                    Grade2P = (int)reader["Grade2P"],
+                                    Grade3P = (int)reader["Grade3P"],
                                     Class = new ClassModel
                                     {
                                         IDClass = (int)reader["IDClass"],
                                         IDTeachertch = (int)reader["IDTeacher"],
                                         NameClass = reader["NameClass"].ToString(),
+                                        Schedule = reader["Schedule"].ToString(),
                                         DescriptionClass = reader["DescriptionClass"].ToString(),
-                                        PictureClass = reader["PictureClass"].ToString()
+                                        PictureClass = reader["PictureClass"].ToString(),
+                                        Teacher = new TeacherModel
+                                        {
+                                            IDTeacher = (int)reader["IDTeacher"],
+                                            NameTeacher = reader["NameTeacher"].ToString(),
+                                            FirstLastNameTeacher = reader["FirstLastNameTeacher"].ToString(),
+                                            SecondLastNameTeacher = reader["SecondLastNameTeacher"].ToString(),
+                                            PictureTeacher = reader["PictureTeacher"].ToString(),
+                                            PasswordTeacher = reader["PasswordTeacher"].ToString(),
+                                            MailTeacher = reader["MailTeacher"].ToString()
+                                        }
                                     },
                                     Student = new StudentModel
                                     {
@@ -54,9 +74,6 @@ namespace WebApiEscuela.Models
                                         NameStudent = reader["NameStudent"].ToString(),
                                         FirstLastNameStudent = reader["FirstLastNameStudent"].ToString(),
                                         SecondLastNameStudent = reader["SecondLastNameStudent"].ToString(),
-                                        Grade1P = (int)reader["Grade1P"],
-                                        Grade2P = (int)reader["Grade2P"],
-                                        Grade3P = (int)reader["Grade3P"],
                                         PictureStudent = reader["PictureStudent"].ToString(),
                                         PasswordStudent = reader["PasswordStudent"].ToString(),
                                         MailStudent = reader["MailStudent"].ToString()
@@ -97,7 +114,7 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "SELECT * FROM DetailClass INNER JOIN Class ON DetailClass.IDClass = Class.IDClass INNER JOIN Student ON DetailClass.IDStudent = Student.IDStudent WHERE DetailClass.IDClass = @IDClass";
+                    string tsql = "SELECT * FROM DetailClass INNER JOIN Class ON DetailClass.IDClass = Class.IDClass INNER JOIN Student ON DetailClass.IDStudent = Student.IDStudent   INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher   WHERE DetailClass.IDClass = @IDClass";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
 
@@ -109,13 +126,27 @@ namespace WebApiEscuela.Models
                                 list.Add(new DetailClassModel
                                 {
                                     IDDetailClass = (int)reader["IDClass"],
+                                    Grade1P = (int)reader["Grade1P"],
+                                    Grade2P = (int)reader["Grade2P"],
+                                    Grade3P = (int)reader["Grade3P"],
                                     Class = new ClassModel
                                     {
                                         IDClass = (int)reader["IDClass"],
                                         IDTeachertch = (int)reader["IDTeacher"],
                                         NameClass = reader["NameClass"].ToString(),
+                                        Schedule = reader["Schedule"].ToString(),
                                         DescriptionClass = reader["DescriptionClass"].ToString(),
-                                        PictureClass = reader["PictureClass"].ToString()
+                                        PictureClass = reader["PictureClass"].ToString(),
+                                        Teacher = new TeacherModel
+                                        {
+                                            IDTeacher = (int)reader["IDTeacher"],
+                                            NameTeacher = reader["NameTeacher"].ToString(),
+                                            FirstLastNameTeacher = reader["FirstLastNameTeacher"].ToString(),
+                                            SecondLastNameTeacher = reader["SecondLastNameTeacher"].ToString(),
+                                            PictureTeacher = reader["PictureTeacher"].ToString(),
+                                            PasswordTeacher = reader["PasswordTeacher"].ToString(),
+                                            MailTeacher = reader["MailTeacher"].ToString()
+                                        }
                                     },
                                     Student = new StudentModel
                                     {
@@ -123,9 +154,6 @@ namespace WebApiEscuela.Models
                                         NameStudent = reader["NameStudent"].ToString(),
                                         FirstLastNameStudent = reader["FirstLastNameStudent"].ToString(),
                                         SecondLastNameStudent = reader["SecondLastNameStudent"].ToString(),
-                                        Grade1P = (int)reader["Grade1P"],
-                                        Grade2P = (int)reader["Grade2P"],
-                                        Grade3P = (int)reader["Grade3P"],
                                         PictureStudent = reader["PictureStudent"].ToString(),
                                         PasswordStudent = reader["PasswordStudent"].ToString(),
                                         MailStudent = reader["MailStudent"].ToString()
@@ -165,7 +193,7 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "SELECT * FROM DetailClass INNER JOIN Class ON DetailClass.IDClass = Class.IDClass INNER JOIN Student ON DetailClass.IDStudent = Student.IDStudent WHERE DetailClass.IDStudent = @IDStudent";
+                    string tsql = "SELECT * FROM DetailClass INNER JOIN Class ON DetailClass.IDClass = Class.IDClass INNER JOIN Student ON DetailClass.IDStudent = Student.IDStudent   INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher  WHERE DetailClass.IDStudent = @IDStudent";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
 
@@ -177,13 +205,27 @@ namespace WebApiEscuela.Models
                                 list.Add(new DetailClassModel
                                 {
                                     IDDetailClass = (int)reader["IDClass"],
+                                    Grade1P = (int)reader["Grade1P"],
+                                    Grade2P = (int)reader["Grade2P"],
+                                    Grade3P = (int)reader["Grade3P"],
                                     Class = new ClassModel
                                     {
                                         IDClass = (int)reader["IDClass"],
                                         IDTeachertch = (int)reader["IDTeacher"],
                                         NameClass = reader["NameClass"].ToString(),
+                                        Schedule = reader["Schedule"].ToString(),
                                         DescriptionClass = reader["DescriptionClass"].ToString(),
-                                        PictureClass = reader["PictureClass"].ToString()
+                                        PictureClass = reader["PictureClass"].ToString(),
+                                         Teacher = new TeacherModel
+                                         {
+                                             IDTeacher = (int)reader["IDTeacher"],
+                                             NameTeacher = reader["NameTeacher"].ToString(),
+                                             FirstLastNameTeacher = reader["FirstLastNameTeacher"].ToString(),
+                                             SecondLastNameTeacher = reader["SecondLastNameTeacher"].ToString(),
+                                             PictureTeacher = reader["PictureTeacher"].ToString(),
+                                             PasswordTeacher = reader["PasswordTeacher"].ToString(),
+                                             MailTeacher = reader["MailTeacher"].ToString()
+                                         }
                                     },
                                     Student = new StudentModel
                                     {
@@ -191,9 +233,6 @@ namespace WebApiEscuela.Models
                                         NameStudent = reader["NameStudent"].ToString(),
                                         FirstLastNameStudent = reader["FirstLastNameStudent"].ToString(),
                                         SecondLastNameStudent = reader["SecondLastNameStudent"].ToString(),
-                                        Grade1P = (int)reader["Grade1P"],
-                                        Grade2P = (int)reader["Grade2P"],
-                                        Grade3P = (int)reader["Grade3P"],
                                         PictureStudent = reader["PictureStudent"].ToString(),
                                         PasswordStudent = reader["PasswordStudent"].ToString(),
                                         MailStudent = reader["MailStudent"].ToString()
@@ -233,12 +272,15 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "INSERT INTO DetailClass (IDClass, IDStudent) VALUES(@IDClass, @IDStudent ); SELECT SCOPE_IDENTITY();";
+                    string tsql = "INSERT INTO DetailClass (IDClass, IDStudent, Grade1P, Grade2P, Grade3P) VALUES(@IDClass, @IDStudent, @Grade1P, @Grade2P, @Grade3P ); SELECT SCOPE_IDENTITY();";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.Parameters.AddWithValue("@IDClass", IDClassdtl);
                         cmd.Parameters.AddWithValue("@IDStudent", IDStudentdtl);
+                        cmd.Parameters.AddWithValue("@Grade1P", Grade1P);
+                        cmd.Parameters.AddWithValue("@Grade2P", Grade2P);
+                        cmd.Parameters.AddWithValue("@Grade3P", Grade3P);
                         newID = cmd.ExecuteScalar();
                         if (newID != null && newID.ToString().Length > 0)
                         {

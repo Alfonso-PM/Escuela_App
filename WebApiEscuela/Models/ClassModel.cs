@@ -20,6 +20,8 @@ namespace WebApiEscuela.Models
 
         public string PictureClass { get; set; }
 
+        public string Schedule { get; set; }
+
         public TeacherModel Teacher { get; set; }
 
         public ResponseModel GetAllClasses()
@@ -42,6 +44,7 @@ namespace WebApiEscuela.Models
                                     IDClass = (int)reader["IDClass"],
                                     NameClass = reader["NameClass"].ToString(),
                                     DescriptionClass = reader["DescriptionClass"].ToString(),
+                                    Schedule = reader["Schedule"].ToString(),
                                     PictureClass = reader["PictureClass"].ToString(),
                                     Teacher = new TeacherModel
                                     {
@@ -103,6 +106,7 @@ namespace WebApiEscuela.Models
                                     IDTeachertch = (int)reader["IDTeacher"],
                                     NameClass = reader["NameClass"].ToString(),
                                     DescriptionClass = reader["DescriptionClass"].ToString(),
+                                    Schedule = reader["Schedule"].ToString(),
                                     PictureClass = reader["PictureClass"].ToString(),
                                     Teacher = new TeacherModel
                                     {
@@ -162,6 +166,7 @@ namespace WebApiEscuela.Models
                                     IDClass = (int)reader["IDClass"],
                                     NameClass = reader["NameClass"].ToString(),
                                     DescriptionClass = reader["DescriptionClass"].ToString(),
+                                    Schedule = reader["Schedule"].ToString(),
                                     PictureClass = reader["PictureClass"].ToString(),
                                     Teacher = new TeacherModel
                                     {
@@ -208,12 +213,13 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "INSERT INTO Class (IDTeacher, NameClass, DescriptionClass, PictureClass) VALUES(@IDTeacher, @NameClass, @DescriptionClass ,@PictureClass ); SELECT SCOPE_IDENTITY();";
+                    string tsql = "INSERT INTO Class (IDTeacher, NameClass,Schedule, DescriptionClass, PictureClass) VALUES(@IDTeacher, @NameClass,@Schedule, @DescriptionClass ,@PictureClass ); SELECT SCOPE_IDENTITY();";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.Parameters.AddWithValue("@IDTeacher", IDTeachertch);
                         cmd.Parameters.AddWithValue("@NameClass", NameClass);
+                        cmd.Parameters.AddWithValue("@Schedule", Schedule);
                         cmd.Parameters.AddWithValue("@DescriptionClass", DescriptionClass);
                         cmd.Parameters.AddWithValue("@PictureClass", PictureClass);
                         newID = cmd.ExecuteScalar();

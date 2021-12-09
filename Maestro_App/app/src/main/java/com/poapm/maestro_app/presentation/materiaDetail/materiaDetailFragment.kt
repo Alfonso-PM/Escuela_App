@@ -6,6 +6,7 @@ import androidx.navigation.fragment.navArgs
 import com.poapm.maestro_app.R
 import com.poapm.maestro_app.core.presentation.BaseFragment
 import com.poapm.maestro_app.databinding.MateriaDetailFragmentBinding
+import com.poapm.maestro_app.presentation.materia.materiaFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 
@@ -21,7 +22,14 @@ class materiaDetailFragment : BaseFragment(R.layout.materia_detail_fragment) {
 
         binding.apply {
             lifecycleOwner = this@materiaDetailFragment
+
             classDetail = args.classDetail
+
+            btnStudent.setOnClickListener {
+
+                navController.navigate(materiaDetailFragmentDirections.actionMateriaDetailFragmentToStudentFragment(args.classDetail))
+
+            }
         }
 
     }

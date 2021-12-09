@@ -9,4 +9,6 @@ interface ClassRepository {
 
     fun getAllClasses(): Either<Failure, ClassResponse>
 
+    fun getClassByIdTeacher(id :Int): Either<Failure, ClassResponse>
+
 }

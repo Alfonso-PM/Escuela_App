@@ -21,4 +21,10 @@ class ClassRepositoryImpl @Inject constructor(
         return result
     }
 
+    override fun getClassByIdTeacher(id: Int): Either<Failure, ClassResponse> {
+        val result = makeRequest(networkHandler, classApi.getClassByIdTeacher(id), { it }, ClassResponse(emptyList()))
+
+        return result
+    }
+
 }
