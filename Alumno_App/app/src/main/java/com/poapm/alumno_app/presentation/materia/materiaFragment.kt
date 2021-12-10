@@ -15,6 +15,7 @@ import com.poapm.alumno_app.core.presentation.BaseFragment
 import com.poapm.alumno_app.core.presentation.BaseViewState
 import com.poapm.alumno_app.databinding.MateriaFragmentBinding
 import com.poapm.alumno_app.domain.model.Class
+import com.poapm.alumno_app.domain.model.ClassDetail
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -50,7 +51,7 @@ class materiaFragment : BaseFragment(R.layout.materia_fragment) {
 
         binding.lifecycleOwner = this
 
-        materiaViewModel.doGetAllClasses("")
+        materiaViewModel.validate(loggedUser)
     }
 
     private fun setUpAdapter(classCls : List<Class>) {

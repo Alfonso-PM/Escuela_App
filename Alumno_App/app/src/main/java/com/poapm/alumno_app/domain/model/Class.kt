@@ -13,6 +13,6 @@ class Class (val idClass: Int = 0,
              val nameClass: String = "",
              val descriptionClass: String = "",
              val pictureClass: String = "",
-             val alumno: Alumno = Alumno()
+             val teacher: Teacher = Teacher()
 ): Parcelable {
 }
