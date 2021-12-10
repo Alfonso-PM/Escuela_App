@@ -49,7 +49,7 @@ class materiaFragment : BaseFragment(R.layout.materia_fragment) {
 
         binding.lifecycleOwner = this
 
-        materiaViewModel.doGetAllClasses("")
+        materiaViewModel.validate(loggedUser)
     }
 
     private fun setUpAdapter(classCls : List<Class>) {

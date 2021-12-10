@@ -2,6 +2,7 @@ package com.poapm.maestro_app.presentation.materiaDetail
 
 
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.poapm.maestro_app.R
 import com.poapm.maestro_app.core.presentation.BaseFragment
@@ -25,6 +26,10 @@ class materiaDetailFragment : BaseFragment(R.layout.materia_detail_fragment) {
             lifecycleOwner = this@materiaDetailFragment
 
             classDetail = args.classDetail
+
+            if(loggedUser == null){
+                btnStudent.isVisible = false
+            }
 
             btnStudent.setOnClickListener {
 

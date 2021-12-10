@@ -14,7 +14,8 @@ import javax.inject.Inject
 @DelicateCoroutinesApi
 @HiltViewModel
 class MateriaViewModel@Inject constructor(
-    private val getAllClasses: GetAllClasses
+    private val getAllClasses: GetAllClasses,
+    private val getClassByIdTeacher: GetClassByIdTeacher
 ) : BaseViewModel() {
 
 
@@ -25,6 +26,25 @@ class MateriaViewModel@Inject constructor(
 
                 true
             }
+        }
+    }
+
+
+    fun doGetClassByIdTeacher(id: Int){
+        getClassByIdTeacher(id) {
+            it.fold(::handleFailure) {
+                state.value = MateriaViewState.MateriaReceived(it.result ?: listOf())
+
+                true
+            }
+        }
+    }
+
+    fun validate(tch:Teacher?){
+        if(tch == null || tch.idTeacher <= 0){
+            doGetAllClasses("")
+        }else{
+            doGetClassByIdTeacher(tch.idTeacher)
         }
     }
 }

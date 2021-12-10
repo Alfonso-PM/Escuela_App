@@ -108,6 +108,16 @@
              app:layout_constraintBottom_toTopOf="@id/btnLogout"
              tools:text="ivan123@gmail.COM" />
 
+         <Button
+             android:id="@+id/btnEdt"
+             android:layout_width="0dp"
+             android:layout_margin="20dp"
+             android:backgroundTint="#7A50C5"
+             android:text="@string/edit_txt"
+             android:layout_height="wrap_content"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"/>
+
 
          <Button
              android:id="@+id/btnLogout"

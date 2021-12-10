@@ -13,10 +13,18 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.poapm.maestro_app.R
 import com.poapm.maestro_app.core.exception.Failure
+import com.poapm.maestro_app.core.plataform.AuthManager
+import com.poapm.maestro_app.domain.model.Teacher
 
 abstract class BaseFragment (@LayoutRes layoutId: Int) : Fragment(layoutId), OnFailure {
     val navController by lazy { findNavController() }
     val baseActivity by lazy { requireActivity() as BaseActivity }
+    private lateinit var authManager: AuthManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        authManager = AuthManager(requireContext())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,6 +35,18 @@ abstract class BaseFragment (@LayoutRes layoutId: Int) : Fragment(layoutId), OnF
     }
 
     abstract fun setBinding(view: View)
+
+     var loggedUser: Teacher?
+         set(value) {
+             authManager.teacher = value
+         }
+         get() {
+             if(authManager.teacher == null){
+                 return null
+             }else{
+                 return authManager.teacher!!
+             }
+         }
 
     open fun onViewStateChanged(state: BaseViewState?) {
         when (state) {

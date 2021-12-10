@@ -13,4 +13,5 @@
     <string name="partial_ll_txt">Partial ll</string>
     <string name="partial_lll_txt">Partial lll</string>
     <string name="apply_txt">APPLY</string>
+    <string name="edit_txt">EDIT</string>
 </resources>
