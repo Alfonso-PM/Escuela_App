@@ -65,6 +65,12 @@ namespace WebApiEscuela.Controllers
             return classes.InsertDetailClass();
         }
 
+        [HttpPut("/detail/{id}")]
+        public ResponseModel Put([FromBody] DetailClassModel classes)
+        {
+            return classes.UpdateGrade();
+        }
+
         // PUT api/<ClassController>/5
         /* [HttpPut("{id}")]
          public void Put(int id, [FromBody] string value)

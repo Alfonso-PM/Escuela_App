@@ -61,5 +61,13 @@
         android:id="@+id/studentDetailFragment"
         android:name="com.poapm.maestro_app.presentation.studentDetail.studentDetailFragment"
         android:label="student_detail_fragment"
-        tools:layout="@layout/student_detail_fragment" />
+        tools:layout="@layout/student_detail_fragment" >
+        <argument
+            android:name="classD"
+            app:argType="com.poapm.maestro_app.domain.model.DetailClass" />
+        <action
+            android:id="@+id/action_studentDetailFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
+    </fragment>
+
 </navigation>

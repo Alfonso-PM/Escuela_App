@@ -8,4 +8,9 @@
     <string name="e_mail_txt">E-MAIL</string>
     <string name="schedule_txt">SCHEDULE:</string>
     <string name="view_students_txt">VIEW STUDENTS</string>
+    <string name="students_list_txt">Students List</string>
+    <string name="partial_l_txt">Partial l</string>
+    <string name="partial_ll_txt">Partial ll</string>
+    <string name="partial_lll_txt">Partial lll</string>
+    <string name="apply_txt">APPLY</string>
 </resources>

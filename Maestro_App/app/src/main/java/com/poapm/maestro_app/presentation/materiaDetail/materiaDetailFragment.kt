@@ -13,6 +13,7 @@ import dagger.hilt.android.WithFragmentBindings
 @AndroidEntryPoint
 @WithFragmentBindings
 class materiaDetailFragment : BaseFragment(R.layout.materia_detail_fragment) {
+
     private lateinit var binding: MateriaDetailFragmentBinding
     private val args: materiaDetailFragmentArgs by navArgs()
 

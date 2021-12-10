@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/imgMateria"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_margin="10dp"
                 app:loadFromURLCircular="@{classCls.url}"
                 app:layout_constraintBottom_toTopOf="@id/txvName"

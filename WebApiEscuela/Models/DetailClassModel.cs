@@ -264,6 +264,45 @@ namespace WebApiEscuela.Models
 
 
 
+        public ResponseModel UpdateGrade()
+        {
+            try
+            {
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string tsql = "UPDATE DetailClass SET Grade1P = @Grade1P, Grade2P = @Grade2P, Grade3P = @Grade3P  WHERE IDDetailClass = @IDDetailClass;";
+                    using (SqlCommand cmd = new SqlCommand(tsql, conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Grade1P", Grade1P);
+                        cmd.Parameters.AddWithValue("@Grade2P", Grade2P);
+                        cmd.Parameters.AddWithValue("@Grade3P", Grade3P);
+                        cmd.Parameters.AddWithValue("@IDDetailClass", IDDetailClass);
+                        cmd.ExecuteNonQuery();
+                        return new ResponseModel
+                        {
+                            IsSuccess = true,
+                            Message = "The student has been updated successfully",
+                            Result = IDDetailClass
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel
+                {
+                    IsSuccess = false,
+                    Message = $"an error was generated when updating a student ({ex.Message})",
+                    Result = null
+                };
+            }
+        }
+
+
+
         public ResponseModel InsertDetailClass()
         {
             try
