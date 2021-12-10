@@ -55,7 +55,8 @@ class TeacherRepositoryImpl  @Inject constructor(
     }
 
     override fun updateTeacher(teacher: Teacher): Either<Failure, Boolean> {
-        TODO("Not yet implemented")
+        val result = teacherDao.updateTeacher(teacher)
+        return  Either.Right(true)
     }
 
 }

@@ -105,7 +105,6 @@ namespace WebApiEscuela.Models
 
 
 
-
         public ResponseModel GetDetailClassbyClassID(int id)
         {
             List<DetailClassModel> list = new List<DetailClassModel>();
@@ -121,7 +120,7 @@ namespace WebApiEscuela.Models
                         cmd.Parameters.AddWithValue("@IDClass", id);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read())
+                            while (reader.Read())
                             {
                                 list.Add(new DetailClassModel
                                 {
@@ -200,7 +199,7 @@ namespace WebApiEscuela.Models
                         cmd.Parameters.AddWithValue("@IDStudent", id);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read())
+                            while (reader.Read())
                             {
                                 list.Add(new DetailClassModel
                                 {

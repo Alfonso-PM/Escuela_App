@@ -82,7 +82,6 @@ namespace WebApiEscuela.Models
 
 
 
-
         public ResponseModel GetClassesbyTeacherID(int id)
         {
             List<ClassModel> list = new List<ClassModel>();
@@ -91,14 +90,14 @@ namespace WebApiEscuela.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE Teacher.IDTeacher = @IDTeacher";
+                    string tsql = "SELECT * FROM Class INNER JOIN Teacher ON Class.IDTeacher = Teacher.IDTeacher WHERE Class.IDTeacher = @IDTeacher";
                     using (SqlCommand cmd = new SqlCommand(tsql, conn))
                     {
 
                         cmd.Parameters.AddWithValue("@IDTeacher", id);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read())
+                            while (reader.Read())
                             {
                                 list.Add(new ClassModel
                                 {
