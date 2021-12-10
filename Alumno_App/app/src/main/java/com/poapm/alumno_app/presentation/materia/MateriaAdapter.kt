@@ -7,6 +7,7 @@ import com.poapm.alumno_app.domain.model.Class
 import androidx.recyclerview.widget.RecyclerView
 import com.poapm.alumno_app.core.extension.loadFromURLCircular
 import com.poapm.alumno_app.databinding.GidMateriaBinding
+import com.poapm.alumno_app.domain.model.ClassDetail
 
 class MateriaAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

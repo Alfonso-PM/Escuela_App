@@ -13,10 +13,31 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.poapm.alumno_app.R
 import com.poapm.alumno_app.core.exception.Failure
+import com.poapm.alumno_app.core.plataform.AuthenticationM
+import com.poapm.alumno_app.domain.model.Alumno
 
 abstract class BaseFragment (@LayoutRes layoutId: Int) : Fragment(layoutId), OnFailure {
     val navController by lazy { findNavController() }
     val baseActivity by lazy { requireActivity() as BaseActivity }
+    private lateinit var authenticationM : AuthenticationM
+
+    var loggedUser: Alumno?
+        set(value) {
+            authenticationM.alumno=value
+        }
+        get() {
+            if (authenticationM.alumno==null){
+                return null
+            }
+            else{
+                return authenticationM.alumno!!
+            }
+        }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        authenticationM = AuthenticationM(requireContext())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

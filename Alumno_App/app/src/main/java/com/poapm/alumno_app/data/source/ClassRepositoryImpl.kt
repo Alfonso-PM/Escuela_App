@@ -4,6 +4,7 @@ import com.poapm.alumno_app.core.exception.Failure
 import com.poapm.alumno_app.core.functional.Either
 import com.poapm.alumno_app.core.plataform.NetworkHandler
 import com.poapm.alumno_app.data.api.ClassApi
+import com.poapm.alumno_app.data.dto.ClassDetailResponse
 import com.poapm.alumno_app.data.dto.ClassResponse
 import com.poapm.alumno_app.domain.repository.ClassRepository
 import com.poapm.alumno_app.framework.api.ApiRequest
@@ -20,5 +21,7 @@ class ClassRepositoryImpl @Inject constructor(
 
         return result
     }
+
+
 
 }
