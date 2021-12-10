@@ -57,7 +57,7 @@ class AccountFragment : BaseFragment(R.layout.account_fragment) {
         }
 
 
-        val url = binding.teacher?.url
+        val url = loggedUser?.url
         val default = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rae.es%2Fnoticia%2Fcorpus-del-espanol-del-siglo-xxi-random&psig=AOvVaw2-uuMuSARxHfhojPSrNfH1&ust=1639012080560000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNCN0_uB0_QCFQAAAAAdAAAAABAD"
         if(binding.teacher?.url != null){
             url?.let { binding.imgStudent.loadFromURLCircular(it) }

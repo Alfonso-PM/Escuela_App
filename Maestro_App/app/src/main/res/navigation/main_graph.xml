@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_accountFragment_to_loginFrangment"
             app:destination="@id/loginFrangment" />
+        <action
+            android:id="@+id/action_accountFragment_to_editFragment"
+            app:destination="@id/editFragment" />
     </fragment>
     <fragment
         android:id="@+id/materiaFragment"
@@ -68,6 +71,14 @@
         <action
             android:id="@+id/action_studentDetailFragment_to_studentFragment"
             app:destination="@id/studentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.poapm.maestro_app.presentation.edtaccount.EditFragment"
+        android:label="EditFragment" >
+        <action
+            android:id="@+id/action_editFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
 
 </navigation>

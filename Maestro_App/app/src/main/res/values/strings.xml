@@ -14,4 +14,10 @@
     <string name="partial_lll_txt">Partial lll</string>
     <string name="apply_txt">APPLY</string>
     <string name="edit_txt">EDIT</string>
+    <string name="type_your_first_lastname">TYPE YOUR FIRST LASTNAME</string>
+    <string name="second_lastname_txt">TYPE YOUR SECOND LASTNAME</string>
+    <string name="email_txt">TYPE YOUR EMAIL</string>
+    <string name="name_txt">TYPE YOUR NAME</string>
+    <string name="update_user_txt">UPDATE USER</string>
+    <string name="user_txt">UPDATE YOUR USER</string>
 </resources>
