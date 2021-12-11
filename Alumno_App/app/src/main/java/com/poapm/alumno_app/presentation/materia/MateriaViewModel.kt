@@ -17,7 +17,7 @@ class MateriaViewModel @Inject constructor(
     private val getClassByIdAlumno: GetClassByIdAlumno
 ) : BaseViewModel() {
 
-    fun doGetAllClasses(name: String){
+    fun doGetAllClasses(name: String) {
         getAllClasses(name) {
             it.fold(::handleFailure) {
                 state.value = MateriaViewState.MateriaReceived(it.result ?: listOf())
@@ -27,7 +27,7 @@ class MateriaViewModel @Inject constructor(
         }
     }
 
-    fun doGetClassByIdTeacher(id: Int){
+    fun doGetClassByIdAlumno(id: Int) {
         getClassByIdAlumno(id) {
             it.fold(::handleFailure) {
                 state.value = MateriaViewState.MateriaReceived(it.result ?: listOf())
@@ -37,10 +37,10 @@ class MateriaViewModel @Inject constructor(
         }
     }
 
-    fun validate(std:Alumno?){
-        if(std == null || std.idStudent <= 0){
+    fun validate(std: Alumno?) {
+        if (std == null || std.idStudent <= 0) {
             UseCase.None()
-        }else{
+        } else {
             doGetAllClasses("")
         }
     }
